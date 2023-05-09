@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body:Text("Hello World",style: TextStyle(
         fontSize: 25,
         color: Colors.blue,
+        backgroundColor: Colors.cyanAccent
       ),)
     );
   }
