@@ -7,6 +7,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,16 +34,18 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Container(
+          width: 3000,
+          height: 3000,
+          child: Image.asset(
+              "assets/img/285812521_120013757379720_1759570390601280362_n.jpg"),
         ),
-        body: const Text(
-          "Hello World",
-          style: TextStyle(
-            fontSize: 25,
-            color: Colors.blue,
-            backgroundColor: Colors.white,
-          ),
-        ));
+      ),
+      // This trailing comma makes auto-formatting nicer for build methods.
+    );
   }
 }
