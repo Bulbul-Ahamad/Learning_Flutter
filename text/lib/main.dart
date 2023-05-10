@@ -37,10 +37,11 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body:Text("Hello World",style: TextStyle(
+      body:const Text("Hello World",style: TextStyle(
         fontSize: 25,
         color: Colors.blue,
-        backgroundColor: Colors.cyanAccent
+        backgroundColor: Colors.cyanAccent,
+
       ),)
     );
   }
