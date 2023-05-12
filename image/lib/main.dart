@@ -38,12 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Container(
-          width: 3000,
-          height: 3000,
-          child: Image.asset(
-              "assets/img/285812521_120013757379720_1759570390601280362_n.jpg"),
-        ),
+        child: Text('Hello World', style: TextStyle(fontFamily: 'MyFont',fontSize: 25,fontWeight: FontWeight.w700),),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
