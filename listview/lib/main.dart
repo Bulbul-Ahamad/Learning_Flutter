@@ -33,7 +33,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  var arrnames = ["Hridoy","HK","Bulbul","Ahamad","Bokul"];
+  var arrnames = ["Hridoy","HK","Bulbul","Ahamad","Bokul","HK","Bulbul","Ahamad","Bokul","HK","Bulbul","Ahamad","Bokul","HK","Bulbul","Ahamad","Bokul"];
+  var arrNumber = ["74762","9203849212","827347","023489","82734","9203849212","197234","920384","92348","9203849212","102987","932809","9203849212","92348923132","23984829","10298734097","9328098"];
 
   @override
   Widget build(BuildContext context) {
@@ -43,40 +44,73 @@ class _MyHomePageState extends State<MyHomePage> {
 
         title: Text(widget.title),
       ),
-      body:ListView.separated(itemBuilder: (context, index) {
-        return Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Text(arrnames[index],style: TextStyle(fontSize: 21,fontWeight: FontWeight.w700),),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Text(arrnames[index],style: TextStyle(fontSize: 21,fontWeight: FontWeight.w700),),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Text(arrnames[index],style: TextStyle(fontSize: 21,fontWeight: FontWeight.w700),),
-                ],
-              ),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 10),
+        child: ListView.separated(itemBuilder: (context, index) {
+          return ListTile(
+            leading: CircleAvatar(
+              // child: Icon(Icons.add),
+              // child: Column(
+              //   children: [
+              //     Container(
+              //       width: 30,
+              //       height: 30,
+              //       child: Image.network("https://previews.123rf.com/images/pandavector/pandavector1901/pandavector190105171/126078877-vector-design-of-avatar-and-dummy-symbol-set-of-avatar-and-image-stock-vector-illustration.jpg"),
+              //     ),
+              //     Text("name")
+              //   ],
+              // ),
+              backgroundImage: NetworkImage("https://previews.123rf.com/images/pandavector/pandavector1901/pandavector190105171/126078877-vector-design-of-avatar-and-dummy-symbol-set-of-avatar-and-image-stock-vector-illustration.jpg"),
+              backgroundColor: Colors.green,
+              radius: 30,
             ),
-          ],
-        );
-      },
-        itemCount: arrnames.length,
-        separatorBuilder: (context , index){
-        return Divider(height: 100, thickness: 1,);
+            title: Text(arrnames[index]),
+            subtitle: Text(arrNumber[index]),
+            trailing: Icon(Icons.add_call),
+          );
         },
+          itemCount: arrnames.length,
+          separatorBuilder: (context , index){
+          return Divider(height: 20, thickness: 1,);
+          },
+        ),
       ),
+      // ListView.separated(itemBuilder: (context, index) {
+      //   return Row(
+      //     children: [
+      //       Padding(
+      //         padding: const EdgeInsets.all(8.0),
+      //         child: Column(
+      //           children: [
+      //             Text(arrnames[index],style: TextStyle(fontSize: 21,fontWeight: FontWeight.w700),),
+      //             Padding(
+      //               padding: const EdgeInsets.all(8.0),
+      //               child: Column(
+      //                 children: [
+      //                   Text(arrnames[index],style: TextStyle(fontSize: 11,fontWeight: FontWeight.w700),),
+      //                 ],
+      //               ),
+      //             ),
+      //           ],
+      //         ),
+      //       ),Padding(
+      //         padding: const EdgeInsets.all(8.0),
+      //         child: Column(
+      //           children: [
+      //             Text(arrnames[index],style: TextStyle(fontSize: 21,fontWeight: FontWeight.w700),),
+      //           ],
+      //         ),
+      //       ),
+      //     ],
+      //   );
+      // },
+      //   itemCount: arrnames.length,
+      //   separatorBuilder: (context , index){
+      //   return Divider(height: 100, thickness: 1,);
+      //   },
+      // ),
+
+
       // ListView.builder(itemBuilder: (context, index) {
       //   return Text(arrnames[index],style: TextStyle(fontWeight: FontWeight.w500,fontSize: 21),);
       // },
