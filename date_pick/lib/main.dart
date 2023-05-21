@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +24,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-
   final String title;
 
   @override
@@ -34,34 +32,35 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  var time = DateTime.now();
-
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
+
         title: Text(widget.title),
       ),
       body: Center(
-        child: Container(
-          width: 300,
-          height: 200,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Current Time : ${DateFormat('EEEE').format(time)}",style: TextStyle(fontSize: 25),),
-              ElevatedButton(onPressed: (){
-                setState(() {
-
-                });
-              }, child: Text("Show Time")),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Select Date',
+              style: TextStyle(fontSize: 25),
+            ),
+            ElevatedButton(onPressed: () async {
+              DateTime? datePicked = await showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(2021),
+                  lastDate: DateTime(2023));
+              if(datePicked!=null){
+                print("date Selected: ${datePicked.day}-${datePicked.month}");
+              }
+            }, child: Text('Show'))
+          ],
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      )
     );
   }
 }
