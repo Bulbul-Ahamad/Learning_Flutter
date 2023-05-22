@@ -77,24 +77,30 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body:
-      Container(
-        height: 200,
-        child: GridView.extent(maxCrossAxisExtent: 200,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
-          children: [
-                Container(color: arrColor[0],),
-                Container(color: arrColor[1],),
-                Container(color: arrColor[2],),
-                Container(color: arrColor[3],),
-                Container(color: arrColor[4],),
-                Container(color: arrColor[5],),
-                Container(color: arrColor[6],),
-                Container(color: arrColor[7],),
-                Container(color: arrColor[8],),
-                Container(color: arrColor[9],),
-              ],),
-      ),
+        GridView.builder(gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 100,
+          crossAxisSpacing: 12,
+          mainAxisSpacing: 12,
+        ),itemBuilder: (context, index) {
+          return Container(color: arrColor[index],);
+        },itemCount: arrColor.length,)
+      // Container(
+      //   height: 200,
+      //   child: GridView.extent(maxCrossAxisExtent: 200,
+      //     mainAxisSpacing: 10,
+      //     crossAxisSpacing: 10,
+      //     children: [
+      //           Container(color: arrColor[0],),
+      //           Container(color: arrColor[1],),
+      //           Container(color: arrColor[2],),
+      //           Container(color: arrColor[3],),
+      //           Container(color: arrColor[4],),
+      //           Container(color: arrColor[5],),
+      //           Container(color: arrColor[6],),
+      //           Container(color: arrColor[7],),
+      //           Container(color: arrColor[8],),
+      //           Container(color: arrColor[9],),
+      //         ],)
       // GridView.count(crossAxisCount: 3,
       // crossAxisSpacing: 10,
       // mainAxisSpacing: 10,
