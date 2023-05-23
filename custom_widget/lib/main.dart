@@ -34,60 +34,94 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
         children: [
+
+          CatItems(),
+
+          MsgItem(),
           Expanded(
-            flex: 2,
+            flex: 1,
             child: Container(
-              color: Colors.cyan,
-              child: ListView.builder(itemBuilder: (context, index) => const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(
-                    width: 100,
-                    child: CircleAvatar(backgroundColor: Colors.brown,)),
-              ),itemCount: 10,scrollDirection: Axis.horizontal,),
-            ),
-          )
-          ,Expanded(
-            flex: 4,
-            child: Container(
-              color: Colors.green,
-              child: ListView.builder(itemBuilder: (context, index) => const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.cyan,
+              color: Colors.red,
+              child: ListView.builder(itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(11),
+                    color: Colors.cyan,
                   ),
-                    title: Text("Name"),
-                  subtitle: Text("Mob No."),
-                  trailing: Icon(Icons.delete),
                 ),
               ),itemCount: 10,scrollDirection: Axis.horizontal,),
             ),
           )
           ,Expanded(
-            flex: 1,
+            flex: 2,
             child: Container(
-              color: Colors.red,
-              child: ListView.builder(itemBuilder: (context, index) =>
+              color: Colors.brown,
+              child: GridView.count(crossAxisCount: 4,
+              children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    width: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(11),
                       color: Colors.blue,
                     ),
                   ),
-                ),itemCount: 10,scrollDirection: Axis.horizontal,),
-            ),
-          )
-          ,Expanded(
-            flex: 2,
-            child: Container(
-              color: Colors.grey,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(11),
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+              ],),
             ),
           )
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+class CatItems extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 2,
+      child: Container(
+        color: Colors.cyan,
+        child: ListView.builder(itemBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+              width: 80,
+              child: CircleAvatar(backgroundColor: Colors.grey,)),
+        ),itemCount: 10,scrollDirection: Axis.horizontal,),
+      ),
+    );
+  }
+
+}
+class MsgItem extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 4,
+      child: Container(
+        color: Colors.green,
+        child: ListView.builder(itemBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListTile(
+            leading: CircleAvatar(backgroundColor: Colors.grey,),
+            title: Text("Name"),
+            subtitle: Text("Mob No"),
+            trailing: Icon(Icons.delete),
+          ),
+        ),itemCount: 10,),
+      ),
+    );
+  }
+
 }
